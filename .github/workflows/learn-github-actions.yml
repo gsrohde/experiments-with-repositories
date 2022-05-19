@@ -14,4 +14,4 @@ jobs:
 
       - name: Echo
         run: |
-          echo ${{ github.event_name }}
+          echo ${{ github.event }}
