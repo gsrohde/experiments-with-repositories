@@ -1,0 +1,14 @@
+name: learn-github-actions
+on:
+  workflow_dispatch:
+    inputs:
+      check-manual:
+        description: 'Check the manual'
+        type: boolean
+        default: true
+
+jobs:
+  call-reusable-workflow
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      check-manual: ${{ github.event.inputs.check-manual }}

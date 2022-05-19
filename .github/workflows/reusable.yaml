@@ -1,0 +1,17 @@
+on:
+  workflow_call:
+    inputs:
+      check-manual:
+        type: boolean
+
+name: called-workflow
+
+jobs:
+  Echo-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo check-manual ${{ inputs.check-manual }}
+          echo check-manual ${{ inputs.check-manual == true }}
+          echo check-manual ${{ inputs.check-manual == 'true' }}
+          echo check-manual ${{ inputs.check-manual == `true` }}
