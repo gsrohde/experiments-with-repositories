@@ -15,4 +15,3 @@ jobs:
       - name: Echo
         run: |
           echo ${{ toJSON(github.event) }}
-          echo ${{ github.event }}
