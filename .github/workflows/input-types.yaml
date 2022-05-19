@@ -11,4 +11,4 @@ jobs:
   call-reusable-workflow:
     uses: ./.github/workflows/reusable.yaml
     with:
-      check-manual: ${{ github.event.inputs.check-manual }}
+      check-manual: ${{ fromJSON(github.event.inputs.check-manual) }}
