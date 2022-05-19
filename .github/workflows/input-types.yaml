@@ -8,7 +8,7 @@ on:
         default: true
 
 jobs:
-  call-reusable-workflow
+  call-reusable-workflow:
     uses: ./.github/workflows/reusable.yaml
     with:
       check-manual: ${{ github.event.inputs.check-manual }}
