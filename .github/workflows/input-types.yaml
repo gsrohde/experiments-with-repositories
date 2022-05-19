@@ -1,4 +1,4 @@
-name: learn-github-actions
+name: learn-about-input-types
 on:
   workflow_dispatch:
     inputs:
