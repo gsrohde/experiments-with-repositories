@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Echo
         run: |
-          echo ${{ toJSON(github.event) }}
+          echo '${{ toJSON(github.event) }}'
           echo "DONE"
 
