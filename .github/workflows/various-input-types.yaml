@@ -38,16 +38,17 @@ jobs:
   print info:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "bool-bool-1: ${{ bool-bool-1 }}"
-      - run: echo "bool-bool-2: ${{ bool-bool-2 }}"
-      - run: echo "bool-bool-3: ${{ bool-bool-3 }}"
-      - run: echo "bool-bool-4: ${{ bool-bool-4 }}"
-      - run: echo "bool-str-1: ${{ bool-str-1 }}"
-      - run: echo "bool-str-2: ${{ bool-str-2 }}"
-      - run: echo "bool-str-3: ${{ bool-str-3 }}"
-      - run: echo "bool-str-4: ${{ bool-str-4 }}"
+      - run:
+          echo "bool-bool-1: ${{ bool-bool-1 }}"
+          echo "bool-bool-2: ${{ bool-bool-2 }}"
+          echo "bool-bool-3: ${{ bool-bool-3 }}"
+          echo "bool-bool-4: ${{ bool-bool-4 }}"
+          echo "bool-str-1: ${{ bool-str-1 }}"
+          echo "bool-str-2: ${{ bool-str-2 }}"
+          echo "bool-str-3: ${{ bool-str-3 }}"
+          echo "bool-str-4: ${{ bool-str-4 }}"
 
-      - run: echo "bool-bool-1 == bool-bool-3: ${{ bool-bool-1 == bool-bool-3 }}"
-      - run: echo "bool-bool-2 == bool-bool-4: ${{ bool-bool-2 == bool-bool-4 }}"
-      - run: echo "bool-bool-1 == bool-str-1: ${{ bool-bool-1 == bool-str-1 }}"
-      - run: echo "bool-bool-2 == bool-str-2: ${{ bool-bool-2 == bool-str-2 }}"
+          echo "bool-bool-1 == bool-bool-3: ${{ bool-bool-1 == bool-bool-3 }}"
+          echo "bool-bool-2 == bool-bool-4: ${{ bool-bool-2 == bool-bool-4 }}"
+          echo "bool-bool-1 == bool-str-1: ${{ bool-bool-1 == bool-str-1 }}"
+          echo "bool-bool-2 == bool-str-2: ${{ bool-bool-2 == bool-str-2 }}"
