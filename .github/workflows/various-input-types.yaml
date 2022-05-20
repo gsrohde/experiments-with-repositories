@@ -48,7 +48,7 @@ env:
   myIntegerNumber: ${{ 711 }}
   myFloatNumber: ${{ -9.2 }}
   myHexNumber: ${{ 0xff }}
-  myExponentialNumber: ${{ -2.99-e2 }}
+  myExponentialNumber: ${{ -2.99e-2 }}
   myString: Mona the Octocat
   myStringInBraces: ${{ 'It''s open source!' }}  
 
@@ -79,7 +79,7 @@ jobs:
           echo "myIntegerNumber comparison: ${{ env.myIntegerNumber == 711 }}
           echo "myFloatNumber comparison: ${{ env.myFloatNumber == -9.2 }}
           echo "myHexNumber comparison: ${{ env.myHexNumber == 0xff }}
-          echo "myExponentialNumber comparison: ${{ env.myExponentialNumber == -2.99-e2 }}
+          echo "myExponentialNumber comparison: ${{ env.myExponentialNumber == -2.99e-2 }}
           echo "myString comparison: ${{ env.myString == 'Mona the Octocat' }}
           echo "myStringInBraces comparison: ${{ env.myStringInBraces == 'It''s open source!' }}  
 
