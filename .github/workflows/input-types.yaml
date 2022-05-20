@@ -13,7 +13,6 @@ jobs:
     with:
       #check-manual: ${{ fromJSON(github.event.inputs.check-manual) }}
       check-manual: ${{ github.event.inputs.check-manual == 'true' }}
-      check-manual: ${{ github.event.inputs.check-manual == 'true' }}
 
   call-reusable-workflow-string:
     uses: ./.github/workflows/reusable.yaml
