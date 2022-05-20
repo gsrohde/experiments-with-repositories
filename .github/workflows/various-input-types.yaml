@@ -15,7 +15,7 @@ on:
         type: boolean
         default: ${{ 'true' }}
       bool-bool-4:
-        description: 'Boolean of type boolean' (default: expression template containing ''false'')'
+        description: 'Boolean of type boolean (default: expression template containing ''false'')'
         type: boolean
         default: ${{ 'false' }}
       bool-str-1:
