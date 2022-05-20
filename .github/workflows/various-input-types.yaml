@@ -39,16 +39,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "bool_bool_1: ${{ bool_bool_1 }}"
-          echo "bool_bool_2: ${{ bool_bool_2 }}"
-          echo "bool_bool_3: ${{ bool_bool_3 }}"
-          echo "bool_bool_4: ${{ bool_bool_4 }}"
-          echo "bool_str_1: ${{ bool_str_1 }}"
-          echo "bool_str_2: ${{ bool_str_2 }}"
-          echo "bool_str_3: ${{ bool_str_3 }}"
-          echo "bool_str_4: ${{ bool_str_4 }}"
+          echo "bool_bool_1: ${{ github.event.inputs.bool_bool_1 }}"
+          echo "bool_bool_2: ${{ github.event.inputs.bool_bool_2 }}"
+          echo "bool_bool_3: ${{ github.event.inputs.bool_bool_3 }}"
+          echo "bool_bool_4: ${{ github.event.inputs.bool_bool_4 }}"
+          echo "bool_str_1: ${{ github.event.inputs.bool_str_1 }}"
+          echo "bool_str_2: ${{ github.event.inputs.bool_str_2 }}"
+          echo "bool_str_3: ${{ github.event.inputs.bool_str_3 }}"
+          echo "bool_str_4: ${{ github.event.inputs.bool_str_4 }}"
 
-          echo "bool_bool_1 == bool_bool_3: ${{ bool_bool_1 == bool_bool_3 }}"
-          echo "bool_bool_2 == bool_bool_4: ${{ bool_bool_2 == bool_bool_4 }}"
-          echo "bool_bool_1 == bool_str_1: ${{ bool_bool_1 == bool_str_1 }}"
-          echo "bool_bool_2 == bool_str_2: ${{ bool_bool_2 == bool_str_2 }}"
+          echo "bool_bool_1 == bool_bool_3: ${{ github.event.inputs.bool_bool_1 == github.event.inputs.bool_bool_3 }}"
+          echo "bool_bool_2 == bool_bool_4: ${{ github.event.inputs.bool_bool_2 == github.event.inputs.bool_bool_4 }}"
+          echo "bool_bool_1 == bool_str_1: ${{ github.event.inputs.bool_bool_1 == github.event.inputs.bool_str_1 }}"
+          echo "bool_bool_2 == bool_str_2: ${{ github.event.inputs.bool_bool_2 == github.event.inputs.bool_str_2 }}"
