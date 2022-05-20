@@ -13,7 +13,9 @@ on:
       bool_bool_3:
         description: 'Boolean of type boolean (default: expression template containing ''true'')'
         type: boolean
-        default: ${{ true }}
+        default: ${{ 'true' }}
+        # Using a real boolean value here (e.g. default: ${{ true }}) gives a template error:
+        #     A template expression is not allowed in this context
       bool_bool_4:
         description: 'Boolean of type boolean (default: expression template containing ''false'')'
         type: boolean
@@ -34,11 +36,33 @@ on:
         description: 'Boolean of type string (default: expression template containing ''false'')'
         type: string
         default: 'false'
+
+env:
+  true-string-1: true
+  true-string-2: ${{ 'true' }}
+  true-string-3: 'true'
+  true-string-4: !!bool true
+  true-string-5: ${{ true }}
+
 jobs:
   print_info:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          echo "Output env comparisons with boolean true:"
+          echo "true-string-1 == true: ${{ env.true-string-1 == true }}"
+          echo "true-string-1 == true: ${{ env.true-string-1 == true }}"
+          echo "true-string-1 == true: ${{ env.true-string-1 == true }}"
+          echo "true-string-1 == true: ${{ env.true-string-1 == true }}"
+          echo "true-string-1 == true: ${{ env.true-string-1 == true }}"
+
+          echo "Output env comparisons with string true:"
+          echo "true-string-1 == 'true': ${{ env.true-string-1 == 'true' }}"
+          echo "true-string-1 == 'true': ${{ env.true-string-1 == 'true' }}"
+          echo "true-string-1 == 'true': ${{ env.true-string-1 == 'true' }}"
+          echo "true-string-1 == 'true': ${{ env.true-string-1 == 'true' }}"
+          echo "true-string-1 == 'true': ${{ env.true-string-1 == 'true' }}"
+
           echo "Output all input values:"
           echo "bool_bool_1: ${{ github.event.inputs.bool_bool_1 }}"
           echo "bool_bool_2: ${{ github.event.inputs.bool_bool_2 }}"
