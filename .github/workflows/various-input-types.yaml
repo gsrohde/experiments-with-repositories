@@ -11,11 +11,11 @@ on:
         type: boolean
         default: false
       bool-bool-3:
-        description: 'Boolean of type boolean (default: ${{ ''true'' }})'
+        description: 'Boolean of type boolean (default: expression template containing ''true'')'
         type: boolean
         default: ${{ 'true' }}
       bool-bool-4:
-        description: 'Boolean of type boolean (default: ${{ ''false'' }})'
+        description: 'Boolean of type boolean' (default: expression template containing ''false'')'
         type: boolean
         default: ${{ 'false' }}
       bool-str-1:
@@ -27,11 +27,11 @@ on:
         type: string
         default: false
       bool-str-3:
-        description: 'Boolean of type string (default: ${{ ''true'' }})'
+        description: 'Boolean of type string (default: expression template containing ''true'')'
         type: string
         default: ${{ 'true' }}
       bool-str-4:
-        description: 'Boolean of type string (default: ${{ ''false'' }})'
+        description: 'Boolean of type string (default: expression template containing ''false'')'
         type: string
         default: ${{ 'false' }}
 jobs:
