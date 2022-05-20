@@ -14,8 +14,6 @@ on:
         description: 'Boolean of type boolean (default: expression template containing ''true'')'
         type: boolean
         default: ${{ 'true' }}
-        # Using a real boolean value here (e.g. default: ${{ true }}) gives a template error:
-        #     A template expression is not allowed in this context
       bool_bool_4:
         description: 'Boolean of type boolean (default: expression template containing ''false'')'
         type: boolean
