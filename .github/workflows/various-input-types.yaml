@@ -41,6 +41,7 @@ env:
   true-string-3: 'true'
   true-string-4: !!bool true
   true-string-5: ${{ true }}
+  true-string-6: ${{ fromJSON(true) }}
 
 jobs:
   print_info:
@@ -49,17 +50,19 @@ jobs:
       - run: |
           echo "Output env comparisons with boolean true:"
           echo "true-string-1 == true: ${{ env.true-string-1 == true }}"
-          echo "true-string-1 == true: ${{ env.true-string-1 == true }}"
-          echo "true-string-1 == true: ${{ env.true-string-1 == true }}"
-          echo "true-string-1 == true: ${{ env.true-string-1 == true }}"
-          echo "true-string-1 == true: ${{ env.true-string-1 == true }}"
+          echo "true-string-2 == true: ${{ env.true-string-2 == true }}"
+          echo "true-string-3 == true: ${{ env.true-string-3 == true }}"
+          echo "true-string-4 == true: ${{ env.true-string-4 == true }}"
+          echo "true-string-5 == true: ${{ env.true-string-5 == true }}"
+          echo "true-string-6 == true: ${{ env.true-string-6 == true }}"
 
           echo "Output env comparisons with string true:"
           echo "true-string-1 == 'true': ${{ env.true-string-1 == 'true' }}"
-          echo "true-string-1 == 'true': ${{ env.true-string-1 == 'true' }}"
-          echo "true-string-1 == 'true': ${{ env.true-string-1 == 'true' }}"
-          echo "true-string-1 == 'true': ${{ env.true-string-1 == 'true' }}"
-          echo "true-string-1 == 'true': ${{ env.true-string-1 == 'true' }}"
+          echo "true-string-2 == 'true': ${{ env.true-string-2 == 'true' }}"
+          echo "true-string-3 == 'true': ${{ env.true-string-3 == 'true' }}"
+          echo "true-string-4 == 'true': ${{ env.true-string-4 == 'true' }}"
+          echo "true-string-5 == 'true': ${{ env.true-string-5 == 'true' }}"
+          echo "true-string-6 == 'true': ${{ env.true-string-6 == 'true' }}"
 
           echo "Output all input values:"
           echo "bool_bool_1: ${{ github.event.inputs.bool_bool_1 }}"
