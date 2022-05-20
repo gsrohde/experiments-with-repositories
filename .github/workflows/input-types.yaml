@@ -11,7 +11,8 @@ jobs:
   call-reusable-workflow-boolean:
     uses: ./.github/workflows/reusable.yaml
     with:
-      check-manual: ${{ fromJSON(github.event.inputs.check-manual) }}
+      #check-manual: ${{ fromJSON(github.event.inputs.check-manual) }}
+      check-manual: ${{ github.event.inputs.check-manual == 'true' }}
 
   call-reusable-workflow-string:
     uses: ./.github/workflows/reusable.yaml
