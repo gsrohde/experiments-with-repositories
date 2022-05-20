@@ -13,7 +13,7 @@ on:
       bool_bool_3:
         description: 'Boolean of type boolean (default: expression template containing ''true'')'
         type: boolean
-        default: ${{ 'true' }}
+        default: ${{ true }}
       bool_bool_4:
         description: 'Boolean of type boolean (default: expression template containing ''false'')'
         type: boolean
