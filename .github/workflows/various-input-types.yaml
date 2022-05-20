@@ -1,0 +1,53 @@
+name: learn-more-about-input-types
+on:
+  workflow_dispatch:
+    inputs:
+      bool-bool-1:
+        description: 'Boolean of type boolean (default: true)'
+        type: boolean
+        default: true
+      bool-bool-2:
+        description: 'Boolean of type boolean (default: false)'
+        type: boolean
+        default: false
+      bool-bool-3:
+        description: 'Boolean of type boolean (default: ${{ ''true'' }})'
+        type: boolean
+        default: ${{ 'true' }}
+      bool-bool-4:
+        description: 'Boolean of type boolean (default: ${{ ''false'' }})'
+        type: boolean
+        default: ${{ 'false' }}
+      bool-str-1:
+        description: 'Boolean of type string (default: true)'
+        type: string
+        default: true
+      bool-str-2:
+        description: 'Boolean of type string (default: false)'
+        type: string
+        default: false
+      bool-str-3:
+        description: 'Boolean of type string (default: ${{ ''true'' }})'
+        type: string
+        default: ${{ 'true' }}
+      bool-str-4:
+        description: 'Boolean of type string (default: ${{ ''false'' }})'
+        type: string
+        default: ${{ 'false' }}
+jobs:
+  print info:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "bool-bool-1: ${{ bool-bool-1 }}"
+      - run: echo "bool-bool-2: ${{ bool-bool-2 }}"
+      - run: echo "bool-bool-3: ${{ bool-bool-3 }}"
+      - run: echo "bool-bool-4: ${{ bool-bool-4 }}"
+      - run: echo "bool-str-1: ${{ bool-str-1 }}"
+      - run: echo "bool-str-2: ${{ bool-str-2 }}"
+      - run: echo "bool-str-3: ${{ bool-str-3 }}"
+      - run: echo "bool-str-4: ${{ bool-str-4 }}"
+
+      - run: echo "bool-bool-1 == bool-bool-3: ${{ bool-bool-1 == bool-bool-3 }}"
+      - run: echo "bool-bool-2 == bool-bool-4: ${{ bool-bool-2 == bool-bool-4 }}"
+      - run: echo "bool-bool-1 == bool-str-1: ${{ bool-bool-1 == bool-str-1 }}"
+      - run: echo "bool-bool-2 == bool-str-2: ${{ bool-bool-2 == bool-str-2 }}"
