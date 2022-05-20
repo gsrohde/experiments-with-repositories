@@ -4,7 +4,7 @@ on:
     inputs:
       check-manual:
         description: 'Check the manual'
-        type: boolean
+        type: string
         default: ${{ true }}
 
 jobs:
