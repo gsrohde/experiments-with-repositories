@@ -17,8 +17,12 @@ jobs:
           echo check-manual ${{ inputs.check-manual }}
           echo check-manual ${{ inputs.check-manual == true }}
           echo check-manual ${{ inputs.check-manual == 'true' }}
+          echo check-manual ${{ inputs.check-manual == false }}
+          echo check-manual ${{ inputs.check-manual == 'false' }}
       - name: check-value-string
         run: |
           echo check-manual-string ${{ inputs.check-manual-string }}
           echo check-manual-string ${{ inputs.check-manual-string == true }}
           echo check-manual-string ${{ inputs.check-manual-string == 'true' }}
+          echo check-manual-string ${{ inputs.check-manual-string == false }}
+          echo check-manual-string ${{ inputs.check-manual-string == 'false' }}
