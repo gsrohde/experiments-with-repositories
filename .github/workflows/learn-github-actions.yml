@@ -2,7 +2,7 @@ name: learn-github-actions
 on:
   push:
     tags:
-      - *
+      - v*
 jobs:
   test-out-stuff:
     runs-on: ubuntu-latest
