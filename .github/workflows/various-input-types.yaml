@@ -43,12 +43,21 @@ env:
   true-string-5: ${{ true }}
   true-string-6: ${{ fromJSON(true) }}
 
+  myNull: ${{ null }}
+  myBoolean: ${{ false }}
+  myIntegerNumber: ${{ 711 }}
+  myFloatNumber: ${{ -9.2 }}
+  myHexNumber: ${{ 0xff }}
+  myExponentialNumber: ${{ -2.99-e2 }}
+  myString: Mona the Octocat
+  myStringInBraces: ${{ 'It''s open source!' }}  
+
 jobs:
   print_info:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "Output env comparisons with boolean true:"
+          echo "Output env.true-string-* comparisons with boolean true:"
           echo "true-string-1 == true: ${{ env.true-string-1 == true }}"
           echo "true-string-2 == true: ${{ env.true-string-2 == true }}"
           echo "true-string-3 == true: ${{ env.true-string-3 == true }}"
@@ -56,13 +65,23 @@ jobs:
           echo "true-string-5 == true: ${{ env.true-string-5 == true }}"
           echo "true-string-6 == true: ${{ env.true-string-6 == true }}"
 
-          echo "Output env comparisons with string true:"
+          echo "Output env.true-string-* comparisons with string true:"
           echo "true-string-1 == 'true': ${{ env.true-string-1 == 'true' }}"
           echo "true-string-2 == 'true': ${{ env.true-string-2 == 'true' }}"
           echo "true-string-3 == 'true': ${{ env.true-string-3 == 'true' }}"
           echo "true-string-4 == 'true': ${{ env.true-string-4 == 'true' }}"
           echo "true-string-5 == 'true': ${{ env.true-string-5 == 'true' }}"
           echo "true-string-6 == 'true': ${{ env.true-string-6 == 'true' }}"
+
+          echo "Output other env variable comparisons:"
+          echo "myNull comparison: ${{ env.myNULL == null }}
+          echo "myBoolean comparison: ${{ env.myBoolean == false }}
+          echo "myIntegerNumber comparison: ${{ env.myIntegerNumber == 711 }}
+          echo "myFloatNumber comparison: ${{ env.myFloatNumber == -9.2 }}
+          echo "myHexNumber comparison: ${{ env.myHexNumber == 0xff }}
+          echo "myExponentialNumber comparison: ${{ env.myExponentialNumber == -2.99-e2 }}
+          echo "myString comparison: ${{ env.myString == 'Mona the Octocat' }}
+          echo "myStringInBraces comparison: ${{ env.myStringInBraces == 'It''s open source!' }}  
 
           echo "Output all input values:"
           echo "bool_bool_1: ${{ github.event.inputs.bool_bool_1 }}"
