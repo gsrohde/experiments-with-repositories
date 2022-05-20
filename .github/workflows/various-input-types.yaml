@@ -35,7 +35,7 @@ on:
         type: string
         default: ${{ 'false' }}
 jobs:
-  print info:
+  print_info:
     runs-on: ubuntu-latest
     steps:
       - run: |
