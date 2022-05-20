@@ -38,7 +38,7 @@ jobs:
   print info:
     runs-on: ubuntu-latest
     steps:
-      - run:
+      - run: |
           echo "bool-bool-1: ${{ bool-bool-1 }}"
           echo "bool-bool-2: ${{ bool-bool-2 }}"
           echo "bool-bool-3: ${{ bool-bool-3 }}"
