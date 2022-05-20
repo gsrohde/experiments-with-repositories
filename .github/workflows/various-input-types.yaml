@@ -98,3 +98,13 @@ jobs:
           echo "bool_str_2 == null: ${{ github.event.inputs.bool_str_2 == null }}"
           echo "bool_str_3 == null: ${{ github.event.inputs.bool_str_3 == null }}"
           echo "bool_str_4 == null: ${{ github.event.inputs.bool_str_4 == null }}"
+
+          echo "Output comparison with the empty string:"
+          echo "bool_bool_1 == '': ${{ github.event.inputs.bool_bool_1 == '' }}"
+          echo "bool_bool_2 == '': ${{ github.event.inputs.bool_bool_2 == '' }}"
+          echo "bool_bool_3 == '': ${{ github.event.inputs.bool_bool_3 == '' }}"
+          echo "bool_bool_4 == '': ${{ github.event.inputs.bool_bool_4 == '' }}"
+          echo "bool_str_1 == '': ${{ github.event.inputs.bool_str_1 == '' }}"
+          echo "bool_str_2 == '': ${{ github.event.inputs.bool_str_2 == '' }}"
+          echo "bool_str_3 == '': ${{ github.event.inputs.bool_str_3 == '' }}"
+          echo "bool_str_4 == '': ${{ github.event.inputs.bool_str_4 == '' }}"
