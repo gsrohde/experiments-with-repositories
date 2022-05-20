@@ -8,7 +8,12 @@ on:
         default: true
 
 jobs:
-  call-reusable-workflow:
+  call-reusable-workflow-boolean:
     uses: ./.github/workflows/reusable.yaml
     with:
       check-manual: ${{ fromJSON(github.event.inputs.check-manual) }}
+
+  call-reusable-workflow-string:
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      check-manual-string: ${{ github.event.inputs.check-manual }}

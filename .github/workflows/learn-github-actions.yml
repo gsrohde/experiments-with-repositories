@@ -1,6 +1,8 @@
 name: learn-github-actions
 on:
-  push
+  push:
+    tags:
+      - *
 jobs:
   test-out-stuff:
     runs-on: ubuntu-latest
