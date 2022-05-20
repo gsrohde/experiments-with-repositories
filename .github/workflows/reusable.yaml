@@ -14,15 +14,15 @@ jobs:
     steps:
       - name: check-value-boolean
         run: |
-          echo check-manual ${{ inputs.check-manual }}
-          echo check-manual ${{ inputs.check-manual == true }}
-          echo check-manual ${{ inputs.check-manual == 'true' }}
-          echo check-manual ${{ inputs.check-manual == false }}
-          echo check-manual ${{ inputs.check-manual == 'false' }}
+          echo Value of check-manual ${{ inputs.check-manual }}
+          echo Is check-manual equal to true: ${{ inputs.check-manual == true }}
+          echo Is check-manual equal to 'true': ${{ inputs.check-manual == 'true' }}
+          echo Is check-manual equal to false: ${{ inputs.check-manual == false }}
+          echo Is check-manual equal to 'false': ${{ inputs.check-manual == 'false' }}
       - name: check-value-string
         run: |
-          echo check-manual-string ${{ inputs.check-manual-string }}
-          echo check-manual-string ${{ inputs.check-manual-string == true }}
-          echo check-manual-string ${{ inputs.check-manual-string == 'true' }}
-          echo check-manual-string ${{ inputs.check-manual-string == false }}
-          echo check-manual-string ${{ inputs.check-manual-string == 'false' }}
+          echo Value of check-manual-string ${{ inputs.check-manual-string }}
+          echo Is check-manual-string equal to true: ${{ inputs.check-manual-string == true }}
+          echo Is check-manual-string equal to 'true': ${{ inputs.check-manual-string == 'true' }}
+          echo Is check-manual-string equal to false: ${{ inputs.check-manual-string == false }}
+          echo Is check-manual-string equal to 'false': ${{ inputs.check-manual-string == 'false' }}
