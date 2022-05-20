@@ -29,11 +29,11 @@ on:
       bool_str_3:
         description: 'Boolean of type string (default: expression template containing ''true'')'
         type: string
-        default: ${{ 'true' }}
+        default: 'true'
       bool_str_4:
         description: 'Boolean of type string (default: expression template containing ''false'')'
         type: string
-        default: ${{ 'false' }}
+        default: 'false'
 jobs:
   print_info:
     runs-on: ubuntu-latest
