@@ -26,6 +26,7 @@ jobs:
 
 
           # Are large numbers treated differently?
-          echo "${{ contains(1e20, 'e') }}"
           echo "${{ contains(1e20, '10000000') }}"
+          echo "${{ contains(1e20, 'e') }}"
+          echo "${{ contains(1e20, '1e20') }}"
 
