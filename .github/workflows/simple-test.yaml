@@ -2,8 +2,6 @@ name: learn-more-about-input-types
 on:
   workflow_dispatch:
   push:
-    tags:
-      - '*'
 
 jobs:
   test_bash_echo:
