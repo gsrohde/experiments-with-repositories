@@ -10,7 +10,13 @@ jobs:
           echo "${{ contains('false', 'e') }}"
           echo "${{ contains('null', 'u') }}"
 
-          echo "${{ contains(false, 'e') }}"
+          echo "${{ contains(false, 'false') }}"
+          echo "${{ contains('false,' false) }}"
+
+          echo "${{ contains(true, 'true') }}"
+          echo "${{ contains('true,' true) }}"
+
+
           echo "${{ contains(null, 'u') }}"
 
           echo "${{ contains('', null) }}"
