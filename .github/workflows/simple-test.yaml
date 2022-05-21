@@ -23,3 +23,9 @@ jobs:
 
           echo "${{ contains(-2.99e-2, '-0.0299') }}"
           echo "${{ contains('-0.0299', -2.99e-2) }}"
+
+
+          # Are large numbers treated differently?
+          echo "${{ contains(1e20, 'e') }}"
+          echo "${{ contains(1e20, '10000000') }}"
+
