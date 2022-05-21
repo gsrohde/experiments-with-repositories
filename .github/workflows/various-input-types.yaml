@@ -88,10 +88,10 @@ jobs:
 
           echo "Comparing literals:"
           echo "Does null == 'null'?: ${{ null == 'null' }}
-          echo "Does env.myExponentialNumber (-2.99e-2) contain 'e'?: ${{ contains(env.myExponentialNumber, 'e') }}"
-          echo "Does env.myHexNumber (0xff) contain '0x'?: ${{ contains(env.myHexNumber, '0x') }}"
-          echo "Does env.myHexNumber (0xff) == 255?: ${{ env.myHexNumber == 255 }}"
-          echo "Does env.myHexNumber (0xff) == '255'?: ${{ env.myHexNumber == '255' }}"
+          echo "Does env.myExponentialNumber -2.99e-2 contain 'e'?: ${{ contains(env.myExponentialNumber, 'e') }}"
+          echo "Does env.myHexNumber 0xff contain '0x'?: ${{ contains(env.myHexNumber, '0x') }}"
+          echo "Does env.myHexNumber 0xff == 255?: ${{ env.myHexNumber == 255 }}"
+          echo "Does env.myHexNumber 0xff == '255'?: ${{ env.myHexNumber == '255' }}"
 
           echo "Output all input values:"
           echo "bool_bool_1: ${{ github.event.inputs.bool_bool_1 }}"
