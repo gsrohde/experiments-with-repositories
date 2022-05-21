@@ -14,3 +14,4 @@ jobs:
           echo "${{ contains(null, 'u') }}"
 
           echo "${{ contains('', null) }}"
+          echo "${{ contains('any string', null) }}"
