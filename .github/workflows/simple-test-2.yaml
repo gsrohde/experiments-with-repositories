@@ -1,0 +1,14 @@
+name: Test More Casts
+on:
+  workflow_dispatch:
+
+jobs:
+  test_bash_echo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "${{ contains('false', 'e') }}"
+          echo "${{ contains('null', 'u') }}"
+
+          echo "${{ contains(false, 'e') }}"
+          echo "${{ contains(null, 'u') }}"
