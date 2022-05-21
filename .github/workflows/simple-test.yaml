@@ -28,5 +28,10 @@ jobs:
           # Are large numbers treated differently?
           echo "${{ contains(1e20, '10000000') }}"
           echo "${{ contains(1e20, 'e') }}"
-          echo "${{ contains(1e20, '1.0e20') }}"
+          echo "${{ contains(1e20, 'e20') }}"
+          echo "${{ endsWith(1e20, 'e20') }}"
+          echo "${{ startsWith(1e20, '1') }}"
+          echo "${{ startsWith(1e20, '1.') }}"
+          echo "${{ startsWith(1e20, '1.0') }}"
+          echo "${{ startsWith(1e20, '1.0e') }}"
 
