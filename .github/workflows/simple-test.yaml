@@ -1,0 +1,10 @@
+name: learn-more-about-input-types
+on:
+  workflow_dispatch:
+
+jobs:
+  test_bash_echo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Parentheses inside echoed strings are ok (I think)."
