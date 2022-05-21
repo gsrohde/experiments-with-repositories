@@ -31,7 +31,7 @@ jobs:
           echo "${{ contains(1e20, 'e20') }}"
           echo "${{ endsWith(1e20, 'e20') }}"
           echo "${{ startsWith(1e20, '1') }}"
-          echo "${{ startsWith(1e20, '1E') }}"
-          echo "${{ startsWith(1e20, '1E20') }}"
+          echo "${{ startsWith(1e20, '1e') }}"
+          echo "${{ startsWith(1e20, '1e+') }}"
 
 
