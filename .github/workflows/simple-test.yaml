@@ -17,3 +17,9 @@ jobs:
           echo "${{ contains('-2.99e-2', 299) }}"
           echo "${{ contains(-2.99e-2, '299') }}"
           echo "${{ contains(-2.99e-2, 299) }}"
+
+          echo "${{ contains(-2.99e-2, '0299') }}"
+          echo "${{ contains(-2.99e-2, '.0299') }}"
+
+          echo "${{ startsWith(-2.99e-2, '.0299') }}"
+          echo "${{ endsWith(-2.99e-2, '.0299') }}"
