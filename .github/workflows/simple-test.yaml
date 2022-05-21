@@ -31,7 +31,10 @@ jobs:
           echo "${{ contains(1e20, 'e20') }}"
           echo "${{ endsWith(1e20, 'e20') }}"
           echo "${{ startsWith(1e20, '1') }}"
-          echo "${{ startsWith(1e20, '1.') }}"
-          echo "${{ startsWith(1e20, '1.0') }}"
-          echo "${{ startsWith(1e20, '1.0e') }}"
+          echo "${{ startsWith(1e20, '10') }}"
+          echo "${{ startsWith(1e20, '100') }}"
+          echo "${{ startsWith(1e20, '1000') }}"
+          echo "${{ startsWith(1e20, '10000') }}"
+          echo "${{ startsWith(1e20, '100000') }}"
+
 
