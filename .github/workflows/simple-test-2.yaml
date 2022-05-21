@@ -12,3 +12,5 @@ jobs:
 
           echo "${{ contains(false, 'e') }}"
           echo "${{ contains(null, 'u') }}"
+
+          echo "${{ contains('', null) }}"
