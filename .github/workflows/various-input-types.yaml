@@ -50,48 +50,70 @@ env:
   myHexNumber: ${{ 0xff }}
   myExponentialNumber: ${{ -2.99e-2 }}
   myString: Mona the Octocat
-  myStringInBraces: ${{ 'It''s open source!' }}  
+  myStringInBraces: ${{ 'It''s open source!' }}
 
 jobs:
   print_info:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          # No matter how we set a environment variable to to true, it is always treated as a string:
           echo "Output env.true-string-* comparisons with boolean true:"
-          echo "true-string-1 == true: ${{ env.true-string-1 == true }}"
-          echo "true-string-2 == true: ${{ env.true-string-2 == true }}"
-          echo "true-string-3 == true: ${{ env.true-string-3 == true }}"
-          echo "true-string-4 == true: ${{ env.true-string-4 == true }}"
-          echo "true-string-5 == true: ${{ env.true-string-5 == true }}"
-          echo "true-string-6 == true: ${{ env.true-string-6 == true }}"
+          echo "true-string-1 == true: ${{ env.true-string-1 == true }}" # false
+          echo "true-string-2 == true: ${{ env.true-string-2 == true }}" # false
+          echo "true-string-3 == true: ${{ env.true-string-3 == true }}" # false
+          echo "true-string-4 == true: ${{ env.true-string-4 == true }}" # false
+          echo "true-string-5 == true: ${{ env.true-string-5 == true }}" # false
+          echo "true-string-6 == true: ${{ env.true-string-6 == true }}" # false
 
           echo "Output env.true-string-* comparisons with string true:"
-          echo "true-string-1 == 'true': ${{ env.true-string-1 == 'true' }}"
-          echo "true-string-2 == 'true': ${{ env.true-string-2 == 'true' }}"
-          echo "true-string-3 == 'true': ${{ env.true-string-3 == 'true' }}"
-          echo "true-string-4 == 'true': ${{ env.true-string-4 == 'true' }}"
-          echo "true-string-5 == 'true': ${{ env.true-string-5 == 'true' }}"
-          echo "true-string-6 == 'true': ${{ env.true-string-6 == 'true' }}"
+          echo "true-string-1 == 'true': ${{ env.true-string-1 == 'true' }}" # true
+          echo "true-string-2 == 'true': ${{ env.true-string-2 == 'true' }}" # true
+          echo "true-string-3 == 'true': ${{ env.true-string-3 == 'true' }}" # true
+          echo "true-string-4 == 'true': ${{ env.true-string-4 == 'true' }}" # true
+          echo "true-string-5 == 'true': ${{ env.true-string-5 == 'true' }}" # true
+          echo "true-string-6 == 'true': ${{ env.true-string-6 == 'true' }}" # true
 
           echo "Output other env variable comparisons:"
-          echo "myNull comparison: ${{ env.myNull == null }}"
-          echo "Does null == 0?: ${{ null == 0 }}"
-          echo "Does env.myNull == 0?: ${{ env.myNull == 0 }}"
-          echo "Does env.myNull == 'null'?: ${{ env.myNull == 'null' }}"
-          echo "myBoolean comparison: ${{ env.myBoolean == false }}"
-          echo "myIntegerNumber comparison: ${{ env.myIntegerNumber == 711 }}"
-          echo "myFloatNumber comparison: ${{ env.myFloatNumber == -9.2 }}"
-          echo "myHexNumber comparison: ${{ env.myHexNumber == 0xff }}"
-          echo "myExponentialNumber comparison: ${{ env.myExponentialNumber == -2.99e-2 }}"
-          echo "myString comparison: ${{ env.myString == 'Mona the Octocat' }}"
-          echo "myStringInBraces comparison: ${{ env.myStringInBraces == 'It''s open source!' }}"
+          echo "myNull comparison: ${{ env.myNull == null }}" # true (unexpected: if env.myNull is a string, it should get converted to NaN and null should get converted to 0)
+          echo "Does null == 0?: ${{ null == 0 }}" # true (null converts to 0)
+          echo "Does env.myNull == 0?: ${{ env.myNull == 0 }}" # true (unexpected: if env.myNull is a string, it should get converted to NaN)
+          echo "Does env.myNull == 'null'?: ${{ env.myNull == 'null' }}" # false (unexpected: if env.myNull is a string, it should be the string 'null')
+          echo "myBoolean comparison: ${{ env.myBoolean == false }}" # false (expected: if env.myBoolean is a string, it will get converted to NaN whereas false will convert to 0)
+          echo "myIntegerNumber comparison: ${{ env.myIntegerNumber == 711 }}" # true (expected: if myIntegerNumber is the string '711', the literal 711 will get converted to that string.)
+          echo "myFloatNumber comparison: ${{ env.myFloatNumber == -9.2 }}" # true (expected: if env.myFloatNumber is the string '-9.2', the literal -9.2 gets converted to that string)
+          echo "myHexNumber comparison: ${{ env.myHexNumber == 0xff }}" # true (not necessarily expected: if env.myHexNumber is the string '0xff', then the literal 0xff gets converted to a string; but does it convert to '0xff' or '256'?)
+          echo "myExponentialNumber comparison: ${{ env.myExponentialNumber == -2.99e-2 }}" # true  (not necessarily expected: if env.myExponentialNumber is the string '-2.99e-2', then the literal -2.99e-2 gets converted to a string; but does it convert to '-2.99e-2' or '-0.0299'?)
+          echo "myString comparison: ${{ env.myString == 'Mona the Octocat' }}" # true (pretty much expected, even though there are internal spaces)
+          echo "myStringInBraces comparison: ${{ env.myStringInBraces == 'It''s open source!' }}" # true (expected)
 
           echo "Comparing literals:"
-          echo "Does null == 'null'?: ${{ null == 'null' }}"
-          echo "Does env.myExponentialNumber -2.99e-2 contain 'e'?: ${{ contains(env.myExponentialNumber, 'e') }}"
-          echo "Does env.myHexNumber 0xff contain '0x'?: ${{ contains(env.myHexNumber, '0x') }}"
-          echo "Does env.myHexNumber 0xff == 255?: ${{ env.myHexNumber == 255 }}"
-          echo "Does env.myHexNumber 0xff == '255'?: ${{ env.myHexNumber == '255' }}"
+          echo "Does null == 'null'?: ${{ null == 'null' }}" # false (expected: null converts to 0, but 'null' converts to NaN)
+          echo "Does env.myExponentialNumber -2.99e-2 contain 'e'?: ${{ contains(env.myExponentialNumber, 'e') }}" # false (slightly unexpected: if env.myExponentialNumber were treated as a string at the outset, this should be true)
+          echo "Does env.myHexNumber 0xff contain '0x'?: ${{ contains(env.myHexNumber, '0x') }}" # false (number is normalized before conversion to string)
+          echo "Does env.myHexNumber 0xff == 255?: ${{ env.myHexNumber == 255 }}" # true
+          echo "Does env.myHexNumber 0xff == '255'?: ${{ env.myHexNumber == '255' }}" # true
+
+          echo "Output env values:"
+          echo "First, output the value they were set to:"
+          echo "myNull: ${{ null }}"
+          echo "myBoolean: ${{ false }}"
+          echo "myIntegerNumber: ${{ 711 }}"
+          echo "myFloatNumber: ${{ -9.2 }}"
+          echo "myHexNumber: ${{ 0xff }}"
+          echo "myExponentialNumber: ${{ -2.99e-2 }}"
+          echo "myString: Mona the Octocat"
+          echo "myStringInBraces: ${{ 'It''s open source!' }}"
+
+          echo "myNull: ${{ myNull }}"
+          echo "myBoolean: ${{ myBoolean }}"
+          echo "myIntegerNumber: ${{ myIntegerNumber }}"
+          echo "myFloatNumber: ${{ myFloatNumber }}"
+          echo "myHexNumber: ${{ myHexNumber }}"
+          echo "myExponentialNumber: ${{ myExponentialNumber }}"
+          echo "myString: ${{ myString }}"
+          echo "myStringInBraces: ${{ myStringInBraces }}"
+
 
           echo "Output all input values:"
           echo "bool_bool_1: ${{ github.event.inputs.bool_bool_1 }}"
