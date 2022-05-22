@@ -2,7 +2,7 @@ name: Test out arbitrary string inputs
 on:
   workflow_dispatch:
     inputs:
-      any_old_string
+      any_old_string:
         description: 'Any old string (no default)'
         type: string
 
