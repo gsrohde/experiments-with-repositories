@@ -13,12 +13,9 @@ jobs:
           echo "${{ contains('-2.99e-2', 'e') }}" # true (as expected)
           echo "${{ contains(-2.99e-2, 'e') }}"   # false!: -2.99e-2 isn't simply converted to '-2.99e-2'
 
-          echo "${{ contains('-2.99e-2', '299') }}"
-          echo "${{ contains('-2.99e-2', 299) }}"
-
           # This verifies that -2.99e-2 is "stringified" to precisely '-0.0299':
-          echo "${{ contains(-2.99e-2, '-0.0299') }}"
-          echo "${{ contains('-0.0299', -2.99e-2) }}"
+          echo "${{ contains(-2.99e-2, '-0.0299') }}" # true
+          echo "${{ contains('-0.0299', -2.99e-2) }}" # true
 
 
           # Are large numbers treated differently?
@@ -27,7 +24,7 @@ jobs:
 
           # What exactly is the normalization?  This shows that 1e20
           # is 'stringified' to `1e+20' (mod letter case).
-          echo "${{ contains(1e20, '1e+20') }}" 
-          echo "${{ contains('1e+20', 1e20) }}"
+          echo "${{ contains(1e20, '1e+20') }}" # true
+          echo "${{ contains('1e+20', 1e20) }}" 3 true
 
 
