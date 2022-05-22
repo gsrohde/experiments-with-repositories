@@ -1,0 +1,111 @@
+name: debug-error-causing-comment
+on:
+  workflow_dispatch:
+    inputs:
+      bool_str_1:
+        description: 'Boolean of type string (default: true)'
+        type: string
+        default: true
+      bool_str_2:
+        description: 'Boolean of type string (default: false)'
+        type: string
+        default: false
+      bool_str_3:
+        description: 'Boolean of type string (default: ''true'')'
+        type: string
+        default: 'true'
+      bool_str_4:
+        description: 'Boolean of type string (default: ''false'')'
+        type: string
+        default: 'false'
+      bool_str_5:
+        description: 'Boolean of type string (default: expression template containing true)'
+        type: string
+        default: ${{ true }}
+      bool_str_6:
+        description: 'Boolean of type string (default: expression template containing false)'
+        type: string
+        default: ${{ false }}
+      bool_str_7:
+        description: 'Boolean of type string (default: expression template containing ''true'')'
+        type: string
+        default: ${{ 'true' }}
+      bool_str_8:
+        description: 'Boolean of type string (default: expression template containing ''false'')'
+        type: string
+        default: ${{ 'false' }}
+
+jobs:
+  print_info:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Output all input values:"
+          echo "bool_str_1: ${{ github.event.inputs.bool_str_1 }}"
+          echo "bool_str_2: ${{ github.event.inputs.bool_str_2 }}"
+          echo "bool_str_3: ${{ github.event.inputs.bool_str_3 }}"
+          echo "bool_str_4: ${{ github.event.inputs.bool_str_4 }}"
+          echo "bool_str_5: ${{ github.event.inputs.bool_str_5 }}"
+          echo "bool_str_6: ${{ github.event.inputs.bool_str_6 }}"
+          echo "bool_str_7: ${{ github.event.inputs.bool_str_7 }}"
+          echo "bool_str_8: ${{ github.event.inputs.bool_str_8 }}"
+
+          echo "Output comparison with boolean true:"
+          echo "bool_str_1 == true: ${{ github.event.inputs.bool_str_1 == true }}"
+          echo "bool_str_2 == true: ${{ github.event.inputs.bool_str_2 == true }}"
+          echo "bool_str_3 == true: ${{ github.event.inputs.bool_str_3 == true }}"
+          echo "bool_str_4 == true: ${{ github.event.inputs.bool_str_4 == true }}"
+          echo "bool_str_5 == true: ${{ github.event.inputs.bool_str_5 == true }}"
+          echo "bool_str_6 == true: ${{ github.event.inputs.bool_str_6 == true }}"
+          echo "bool_str_7 == true: ${{ github.event.inputs.bool_str_7 == true }}"
+          echo "bool_str_8 == true: ${{ github.event.inputs.bool_str_8 == true }}"
+
+          echo "Output comparison with string 'true':"
+          echo "bool_str_1 == 'true': ${{ github.event.inputs.bool_str_1 == 'true' }}"
+          echo "bool_str_2 == 'true': ${{ github.event.inputs.bool_str_2 == 'true' }}"
+          echo "bool_str_3 == 'true': ${{ github.event.inputs.bool_str_3 == 'true' }}"
+          echo "bool_str_4 == 'true': ${{ github.event.inputs.bool_str_4 == 'true' }}"
+          echo "bool_str_5 == 'true': ${{ github.event.inputs.bool_str_5 == 'true' }}"
+          echo "bool_str_6 == 'true': ${{ github.event.inputs.bool_str_6 == 'true' }}"
+          echo "bool_str_7 == 'true': ${{ github.event.inputs.bool_str_7 == 'true' }}"
+          echo "bool_str_8 == 'true': ${{ github.event.inputs.bool_str_8 == 'true' }}"
+
+          echo "Output comparison with boolean false:"
+          echo "bool_str_1 == false: ${{ github.event.inputs.bool_str_1 == false }}"
+          echo "bool_str_2 == false: ${{ github.event.inputs.bool_str_2 == false }}"
+          echo "bool_str_3 == false: ${{ github.event.inputs.bool_str_3 == false }}"
+          echo "bool_str_4 == false: ${{ github.event.inputs.bool_str_4 == false }}"
+          echo "bool_str_5 == false: ${{ github.event.inputs.bool_str_5 == false }}"
+          echo "bool_str_6 == false: ${{ github.event.inputs.bool_str_6 == false }}"
+          echo "bool_str_7 == false: ${{ github.event.inputs.bool_str_7 == false }}"
+          echo "bool_str_8 == false: ${{ github.event.inputs.bool_str_8 == false }}"
+
+          echo "Output comparison with string 'false':"
+          echo "bool_str_1 == 'false': ${{ github.event.inputs.bool_str_1 == 'false' }}"
+          echo "bool_str_2 == 'false': ${{ github.event.inputs.bool_str_2 == 'false' }}"
+          echo "bool_str_3 == 'false': ${{ github.event.inputs.bool_str_3 == 'false' }}"
+          echo "bool_str_4 == 'false': ${{ github.event.inputs.bool_str_4 == 'false' }}"
+          echo "bool_str_5 == 'false': ${{ github.event.inputs.bool_str_5 == 'false' }}"
+          echo "bool_str_6 == 'false': ${{ github.event.inputs.bool_str_6 == 'false' }}"
+          echo "bool_str_7 == 'false': ${{ github.event.inputs.bool_str_7 == 'false' }}"
+          echo "bool_str_8 == 'false': ${{ github.event.inputs.bool_str_8 == 'false' }}"
+
+          echo "Output comparison with null:"
+          echo "bool_str_1 == null: ${{ github.event.inputs.bool_str_1 == null }}"
+          echo "bool_str_2 == null: ${{ github.event.inputs.bool_str_2 == null }}"
+          echo "bool_str_3 == null: ${{ github.event.inputs.bool_str_3 == null }}"
+          echo "bool_str_4 == null: ${{ github.event.inputs.bool_str_4 == null }}"
+          echo "bool_str_5 == null: ${{ github.event.inputs.bool_str_5 == null }}"
+          echo "bool_str_6 == null: ${{ github.event.inputs.bool_str_6 == null }}"
+          echo "bool_str_7 == null: ${{ github.event.inputs.bool_str_7 == null }}"
+          echo "bool_str_8 == null: ${{ github.event.inputs.bool_str_8 == null }}"
+
+          echo "Output comparison with the empty string:"
+          echo "bool_str_1 == '': ${{ github.event.inputs.bool_str_1 == '' }}"
+          echo "bool_str_2 == '': ${{ github.event.inputs.bool_str_2 == '' }}"
+          echo "bool_str_3 == '': ${{ github.event.inputs.bool_str_3 == '' }}"
+          echo "bool_str_4 == '': ${{ github.event.inputs.bool_str_4 == '' }}"
+          echo "bool_str_5 == '': ${{ github.event.inputs.bool_str_5 == '' }}"
+          echo "bool_str_6 == '': ${{ github.event.inputs.bool_str_6 == '' }}"
+          echo "bool_str_7 == '': ${{ github.event.inputs.bool_str_7 == '' }}"
+          echo "bool_str_8 == '': ${{ github.event.inputs.bool_str_8 == '' }}"
