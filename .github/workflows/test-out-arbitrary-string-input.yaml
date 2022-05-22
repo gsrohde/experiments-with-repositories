@@ -5,6 +5,7 @@ on:
       any_old_string:
         description: 'Any old string (no default)'
         type: string
+        default: ${{ 'true' }}
 
 jobs:
   print_info:
