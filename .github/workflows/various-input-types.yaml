@@ -79,6 +79,8 @@ jobs:
           echo "Does null == 0?: ${{ null == 0 }}" # true (null converts to 0)
           echo "Does env.myNull == 0?: ${{ env.myNull == 0 }}" # true (unexpected: if env.myNull is a string, it should get converted to NaN)
           echo "Does env.myNull == 'null'?: ${{ env.myNull == 'null' }}" # false (unexpected: if env.myNull is a string, it should be the string 'null')
+          echo "Does env.myNull compare equal to the empty string?: ${{ env.myNull == '' }}"
+          echo "Does '' == 0?: ${{ '' == 0 }}"
           echo "myBoolean comparison: ${{ env.myBoolean == false }}" # false (expected: if env.myBoolean is a string, it will get converted to NaN whereas false will convert to 0)
           echo "myIntegerNumber comparison: ${{ env.myIntegerNumber == 711 }}" # true (expected: if myIntegerNumber is the string '711', the literal 711 will get converted to that string.)
           echo "myFloatNumber comparison: ${{ env.myFloatNumber == -9.2 }}" # true (expected: if env.myFloatNumber is the string '-9.2', the literal -9.2 gets converted to that string)
@@ -91,8 +93,8 @@ jobs:
           echo "env.myHexNumber == '0xff'?: ${{ env.myHexNumber == '0xff' }}" # false (even though env.myHexNumber == 0xff is true)
           echo "myExponentialNumber comparison: ${{ env.myExponentialNumber == -2.99e-2 }}" # true  (not necessarily expected: if env.myExponentialNumber is the string '-2.99e-2', then the literal -2.99e-2 gets converted to a string; but does it convert to '-2.99e-2' or '-0.0299'?)
           echo "If we compare myExponentialNumber to a number in quotes, the form must match the normalized form of myExponentialNumber:"
-          echo "env.myExponentialNumber == '-2.99e-2'": ${{ env.myExponentialNumber == '-2.99e-2' }}
-          echo "env.myExponentialNumber == '-0.0299'": ${{ env.myExponentialNumber == '-0.0299' }}
+          echo "env.myExponentialNumber == '-2.99e-2'": ${{ env.myExponentialNumber == '-2.99e-2' }} # false: not the right form
+          echo "env.myExponentialNumber == '-0.0299'": ${{ env.myExponentialNumber == '-0.0299' }} # true
           echo "myString comparison: ${{ env.myString == 'Mona the Octocat' }}" # true (pretty much expected, even though there are internal spaces)
           echo "myStringInBraces comparison: ${{ env.myStringInBraces == 'It''s open source!' }}" # true (expected)
 
