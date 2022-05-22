@@ -86,6 +86,9 @@ jobs:
           echo "tease out the above line: check if 0xff == 255 and if env.myHesNumber == 255:"
           echo "env.myHexNumber == 255?: ${{ env.myHexNumber == 255 }}"
           echo "0xff == 255?: ${{ 0xff == 255 }}"
+          echo "Now do string comparisons.  Assuming the types match (i.e., assuming env.myHexNumber IS initially a string value), they will be compared as strings instead of number:"
+          echo "env.myHexNumber == '255'?: ${{ env.myHexNumber == '255' }}"
+          echo "env.myHexNumber == '0xff'?: ${{ env.myHexNumber == '0xff' }}"
           echo "myExponentialNumber comparison: ${{ env.myExponentialNumber == -2.99e-2 }}" # true  (not necessarily expected: if env.myExponentialNumber is the string '-2.99e-2', then the literal -2.99e-2 gets converted to a string; but does it convert to '-2.99e-2' or '-0.0299'?)
           echo "myString comparison: ${{ env.myString == 'Mona the Octocat' }}" # true (pretty much expected, even though there are internal spaces)
           echo "myStringInBraces comparison: ${{ env.myStringInBraces == 'It''s open source!' }}" # true (expected)
