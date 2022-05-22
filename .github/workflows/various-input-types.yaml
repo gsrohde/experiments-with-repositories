@@ -105,14 +105,15 @@ jobs:
           echo "myString: Mona the Octocat"
           echo "myStringInBraces: ${{ 'It''s open source!' }}"
 
-          echo "myNull: ${{ myNull }}"
-          echo "myBoolean: ${{ myBoolean }}"
-          echo "myIntegerNumber: ${{ myIntegerNumber }}"
-          echo "myFloatNumber: ${{ myFloatNumber }}"
-          echo "myHexNumber: ${{ myHexNumber }}"
-          echo "myExponentialNumber: ${{ myExponentialNumber }}"
-          echo "myString: ${{ myString }}"
-          echo "myStringInBraces: ${{ myStringInBraces }}"
+          echo "Now, output the variable values themselves:"
+          echo "myNull: ${{ env.myNull }}"
+          echo "myBoolean: ${{ env.myBoolean }}"
+          echo "myIntegerNumber: ${{ env.myIntegerNumber }}"
+          echo "myFloatNumber: ${{ env.myFloatNumber }}"
+          echo "myHexNumber: ${{ env.myHexNumber }}"
+          echo "myExponentialNumber: ${{ env.myExponentialNumber }}"
+          echo "myString: ${{ env.myString }}"
+          echo "myStringInBraces: ${{ env.myStringInBraces }}"
 
 
           echo "Output all input values:"
