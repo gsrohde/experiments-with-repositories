@@ -1,4 +1,4 @@
-name: debug-error-causing-comment
+name: test out boolean input
 on:
   workflow_dispatch:
     inputs:
@@ -19,20 +19,12 @@ on:
         type: boolean
         default: 'false'
       bool_bool_5:
-        description: 'Boolean of type boolean (default: expression template containing true)'
-        type: boolean
-        default: ${{ true }}
-        # Using a real boolean value here (e.g. default: ${{ true }}) gives a template error:
-        #     A template expression is not allowed in this context
-      bool_bool_6:
-        description: 'Boolean of type boolean (default: expression template containing false)'
-        type: boolean
-        default: ${{ false }}
-      bool_bool_7:
         description: 'Boolean of type boolean (default: expression template containing ''true'')'
         type: boolean
         default: ${{ 'true' }}
-      bool_bool_8:
+        # Using a real boolean value here (e.g. default: ${{ true }}) gives a template error:
+        #     A template expression is not allowed in this context
+      bool_bool_6:
         description: 'Boolean of type boolean (default: expression template containing ''false'')'
         type: boolean
         default: ${{ 'false' }}
@@ -49,8 +41,6 @@ jobs:
           echo "bool_bool_4: ${{ github.event.inputs.bool_bool_4 }}"
           echo "bool_bool_5: ${{ github.event.inputs.bool_bool_5 }}"
           echo "bool_bool_6: ${{ github.event.inputs.bool_bool_6 }}"
-          echo "bool_bool_7: ${{ github.event.inputs.bool_bool_7 }}"
-          echo "bool_bool_8: ${{ github.event.inputs.bool_bool_8 }}"
 
           echo "Output comparison with boolean true:"
           echo "bool_bool_1 == true: ${{ github.event.inputs.bool_bool_1 == true }}"
@@ -59,8 +49,6 @@ jobs:
           echo "bool_bool_4 == true: ${{ github.event.inputs.bool_bool_4 == true }}"
           echo "bool_bool_5 == true: ${{ github.event.inputs.bool_bool_5 == true }}"
           echo "bool_bool_6 == true: ${{ github.event.inputs.bool_bool_6 == true }}"
-          echo "bool_bool_7 == true: ${{ github.event.inputs.bool_bool_7 == true }}"
-          echo "bool_bool_8 == true: ${{ github.event.inputs.bool_bool_8 == true }}"
 
           echo "Output comparison with string 'true':"
           echo "bool_bool_1 == 'true': ${{ github.event.inputs.bool_bool_1 == 'true' }}"
@@ -69,8 +57,6 @@ jobs:
           echo "bool_bool_4 == 'true': ${{ github.event.inputs.bool_bool_4 == 'true' }}"
           echo "bool_bool_5 == 'true': ${{ github.event.inputs.bool_bool_5 == 'true' }}"
           echo "bool_bool_6 == 'true': ${{ github.event.inputs.bool_bool_6 == 'true' }}"
-          echo "bool_bool_7 == 'true': ${{ github.event.inputs.bool_bool_7 == 'true' }}"
-          echo "bool_bool_8 == 'true': ${{ github.event.inputs.bool_bool_8 == 'true' }}"
 
           echo "Output comparison with boolean false:"
           echo "bool_bool_1 == false: ${{ github.event.inputs.bool_bool_1 == false }}"
@@ -79,8 +65,6 @@ jobs:
           echo "bool_bool_4 == false: ${{ github.event.inputs.bool_bool_4 == false }}"
           echo "bool_bool_5 == false: ${{ github.event.inputs.bool_bool_5 == false }}"
           echo "bool_bool_6 == false: ${{ github.event.inputs.bool_bool_6 == false }}"
-          echo "bool_bool_7 == false: ${{ github.event.inputs.bool_bool_7 == false }}"
-          echo "bool_bool_8 == false: ${{ github.event.inputs.bool_bool_8 == false }}"
 
           echo "Output comparison with string 'false':"
           echo "bool_bool_1 == 'false': ${{ github.event.inputs.bool_bool_1 == 'false' }}"
@@ -89,8 +73,6 @@ jobs:
           echo "bool_bool_4 == 'false': ${{ github.event.inputs.bool_bool_4 == 'false' }}"
           echo "bool_bool_5 == 'false': ${{ github.event.inputs.bool_bool_5 == 'false' }}"
           echo "bool_bool_6 == 'false': ${{ github.event.inputs.bool_bool_6 == 'false' }}"
-          echo "bool_bool_7 == 'false': ${{ github.event.inputs.bool_bool_7 == 'false' }}"
-          echo "bool_bool_8 == 'false': ${{ github.event.inputs.bool_bool_8 == 'false' }}"
 
           echo "Output comparison with null:"
           echo "bool_bool_1 == null: ${{ github.event.inputs.bool_bool_1 == null }}"
@@ -99,8 +81,6 @@ jobs:
           echo "bool_bool_4 == null: ${{ github.event.inputs.bool_bool_4 == null }}"
           echo "bool_bool_5 == null: ${{ github.event.inputs.bool_bool_5 == null }}"
           echo "bool_bool_6 == null: ${{ github.event.inputs.bool_bool_6 == null }}"
-          echo "bool_bool_7 == null: ${{ github.event.inputs.bool_bool_7 == null }}"
-          echo "bool_bool_8 == null: ${{ github.event.inputs.bool_bool_8 == null }}"
 
           echo "Output comparison with the empty string:"
           echo "bool_bool_1 == '': ${{ github.event.inputs.bool_bool_1 == '' }}"
@@ -109,5 +89,3 @@ jobs:
           echo "bool_bool_4 == '': ${{ github.event.inputs.bool_bool_4 == '' }}"
           echo "bool_bool_5 == '': ${{ github.event.inputs.bool_bool_5 == '' }}"
           echo "bool_bool_6 == '': ${{ github.event.inputs.bool_bool_6 == '' }}"
-          echo "bool_bool_7 == '': ${{ github.event.inputs.bool_bool_7 == '' }}"
-          echo "bool_bool_8 == '': ${{ github.event.inputs.bool_bool_8 == '' }}"
