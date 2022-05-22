@@ -7,17 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "${{ contains('false', 'e') }}"
-          echo "${{ contains('null', 'u') }}"
+          echo "${{ contains('false', 'e') }}" # true (as expected; both are strings)
+          echo "${{ contains('null', 'u') }}"  # (ditto)
 
+          # This shows false is stringified to 'false':
           echo "${{ contains(false, 'false') }}"
           echo "${{ contains('false', false) }}"
 
-          echo "${{ contains(true, 'true') }}"
-          echo "${{ contains('true', true) }}"
+          # But null is not stringified to 'null':
+          echo "${{ contains(null, 'u') }}" # false!
 
-
-          echo "${{ contains(null, 'u') }}"
-
+          # Rather, it is stringified to the empty string:
           echo "${{ contains('', null) }}"
           echo "${{ contains('any string', null) }}"
