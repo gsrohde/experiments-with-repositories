@@ -1,0 +1,14 @@
+name: Test out arbitrary string inputs
+on:
+  workflow_dispatch:
+    inputs:
+      any_old_string
+        description: 'Any old string (no default)'
+        type: string
+
+jobs:
+  print_info:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "The string you entered is: ${{ github.event.inputs.any_old_string }}"
