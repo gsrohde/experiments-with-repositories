@@ -83,6 +83,9 @@ jobs:
           echo "myIntegerNumber comparison: ${{ env.myIntegerNumber == 711 }}" # true (expected: if myIntegerNumber is the string '711', the literal 711 will get converted to that string.)
           echo "myFloatNumber comparison: ${{ env.myFloatNumber == -9.2 }}" # true (expected: if env.myFloatNumber is the string '-9.2', the literal -9.2 gets converted to that string)
           echo "myHexNumber comparison: ${{ env.myHexNumber == 0xff }}" # true (not necessarily expected: if env.myHexNumber is the string '0xff', then the literal 0xff gets converted to a string; but does it convert to '0xff' or '256'?)
+          echo "tease out the above line: check if 0xff == 255 and if env.myHesNumber == 255:"
+          echo "env.myHexNumber == 255?: ${{ env.myHexNumber == 255 }}"
+          echo "0xff == 255?: ${{ 0xff == 255 }}"
           echo "myExponentialNumber comparison: ${{ env.myExponentialNumber == -2.99e-2 }}" # true  (not necessarily expected: if env.myExponentialNumber is the string '-2.99e-2', then the literal -2.99e-2 gets converted to a string; but does it convert to '-2.99e-2' or '-0.0299'?)
           echo "myString comparison: ${{ env.myString == 'Mona the Octocat' }}" # true (pretty much expected, even though there are internal spaces)
           echo "myStringInBraces comparison: ${{ env.myStringInBraces == 'It''s open source!' }}" # true (expected)
@@ -96,16 +99,16 @@ jobs:
 
           echo "Output env values:"
           echo "First, output the value they were set to:"
-          echo "myNull: ${{ null }}"
+          echo "myNull: ${{ null }}" # output is empty string
           echo "myBoolean: ${{ false }}"
           echo "myIntegerNumber: ${{ 711 }}"
           echo "myFloatNumber: ${{ -9.2 }}"
-          echo "myHexNumber: ${{ 0xff }}"
-          echo "myExponentialNumber: ${{ -2.99e-2 }}"
+          echo "myHexNumber: ${{ 0xff }}" # output is 255!
+          echo "myExponentialNumber: ${{ -2.99e-2 }}" # output is -0.0299!
           echo "myString: Mona the Octocat"
           echo "myStringInBraces: ${{ 'It''s open source!' }}"
 
-          echo "Now, output the variable values themselves:"
+          echo "Now, output the variable values themselves (get same result!):"
           echo "myNull: ${{ env.myNull }}"
           echo "myBoolean: ${{ env.myBoolean }}"
           echo "myIntegerNumber: ${{ env.myIntegerNumber }}"
