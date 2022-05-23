@@ -22,5 +22,6 @@ jobs:
       check-manual-string: ${{ github.event.inputs.check-manual }}
 
   print-string:
-    run: |
-      echo "string-using-format-function = ${{ github.event.inputs.string-using-format-function }}"
+    steps:
+      run: |
+        echo "string-using-format-function = ${{ github.event.inputs.string-using-format-function }}"
