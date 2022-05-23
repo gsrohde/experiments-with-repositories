@@ -9,11 +9,11 @@ on:
         # just fine when run.  There is, of course, no reason not to
         # just use "false" (unquoted), without the expression
         # template.
-        default: ${{ false }}
+        default: ${{ true }}
 
       check-manual-string:
         type: string
-        default: 'false'
+        default: 'true'
       string-using-format-function:
         type: string
         default: ${{ format('The event is {0}!', github.event_name) }}

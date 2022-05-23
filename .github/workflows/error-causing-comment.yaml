@@ -18,24 +18,24 @@ on:
         description: 'Boolean of type boolean (default: ''false'')'
         type: boolean
         default: 'false'
-      bool_bool_5:
-        description: 'Boolean of type boolean (default: expression template containing true)'
-        type: boolean
-        default: ${{ true }}
-        # Using a real boolean value here (e.g. default: ${{ true }}) gives a template error:
-        #     A template expression is not allowed in this context
-      bool_bool_6:
-        description: 'Boolean of type boolean (default: expression template containing false)'
-        type: boolean
-        default: ${{ false }}
-      bool_bool_7:
-        description: 'Boolean of type boolean (default: expression template containing ''true'')'
-        type: boolean
-        default: ${{ 'true' }}
-      bool_bool_8:
-        description: 'Boolean of type boolean (default: expression template containing ''false'')'
-        type: boolean
-        default: ${{ 'false' }}
+      # bool_bool_5:
+      #   description: 'Boolean of type boolean (default: expression template containing true)'
+      #   type: boolean
+      #   default: ${{ true }}
+      #   # Using a real boolean value here (e.g. default: ${{ true }}) gives a template error:
+      #   #     A template expression is not allowed in this context
+      # bool_bool_6:
+      #   description: 'Boolean of type boolean (default: expression template containing false)'
+      #   type: boolean
+      #   default: ${{ false }}
+      # bool_bool_7:
+      #   description: 'Boolean of type boolean (default: expression template containing ''true'')'
+      #   type: boolean
+      #   default: ${{ 'true' }}
+      # bool_bool_8:
+      #   description: 'Boolean of type boolean (default: expression template containing ''false'')'
+      #   type: boolean
+      #   default: ${{ 'false' }}
       bool_str_1:
         description: 'Boolean of type string (default: true)'
         type: string
@@ -52,22 +52,22 @@ on:
         description: 'Boolean of type string (default: ''false'')'
         type: string
         default: 'false'
-      bool_str_5:
-        description: 'Boolean of type string (default: expression template containing true)'
-        type: string
-        default: ${{ true }}
-      bool_str_6:
-        description: 'Boolean of type string (default: expression template containing false)'
-        type: string
-        default: ${{ false }}
-      bool_str_7:
-        description: 'Boolean of type string (default: expression template containing ''true'')'
-        type: string
-        default: ${{ 'true' }}
-      bool_str_8:
-        description: 'Boolean of type string (default: expression template containing ''false'')'
-        type: string
-        default: ${{ 'false' }}
+      # bool_str_5:
+      #   description: 'Boolean of type string (default: expression template containing true)'
+      #   type: string
+      #   default: ${{ true }}
+      # bool_str_6:
+      #   description: 'Boolean of type string (default: expression template containing false)'
+      #   type: string
+      #   default: ${{ false }}
+      # bool_str_7:
+      #   description: 'Boolean of type string (default: expression template containing ''true'')'
+      #   type: string
+      #   default: ${{ 'true' }}
+      # bool_str_8:
+      #   description: 'Boolean of type string (default: expression template containing ''false'')'
+      #   type: string
+      #   default: ${{ 'false' }}
 
 jobs:
   print_info:
