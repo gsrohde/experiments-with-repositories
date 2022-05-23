@@ -137,7 +137,16 @@ jobs:
           echo "bool_str_3: ${{ github.event.inputs.bool_str_3 }}"
           echo "bool_str_4: ${{ github.event.inputs.bool_str_4 }}"
 
-          echo "Output comparison with boolean true:"
+          # Result values in comments are for when the defaults are used!  The defaults are:
+          #     bool_bool_1: true (treated as 'true')
+          #     bool_bool_2: false (treated as 'false')
+          #     bool_bool_3: false (treated as 'false'; template ${{ 'true' }} doesn't get treated as 'true')
+          #     bool_bool_4: false (treated as 'false')
+          #     bool_str_1: 'true'
+          #     bool_str_2: ''
+          #     bool_str_3: 'true'
+          #     bool_str_4: 'false'
+          echo "Output comparison with boolean true (always false since none of the input values convert to the number 1):"
           echo "bool_bool_1 == true: ${{ github.event.inputs.bool_bool_1 == true }}"
           echo "bool_bool_2 == true: ${{ github.event.inputs.bool_bool_2 == true }}"
           echo "bool_bool_3 == true: ${{ github.event.inputs.bool_bool_3 == true }}"
@@ -147,35 +156,35 @@ jobs:
           echo "bool_str_3 == true: ${{ github.event.inputs.bool_str_3 == true }}"
           echo "bool_str_4 == true: ${{ github.event.inputs.bool_str_4 == true }}"
 
-          echo "Output comparison with string 'true':"
-          echo "bool_bool_1 == 'true': ${{ github.event.inputs.bool_bool_1 == 'true' }}"
+          echo "Output comparison with string 'true':" # (false except as noted)
+          echo "bool_bool_1 == 'true': ${{ github.event.inputs.bool_bool_1 == 'true' }}" # true (string equivalence)
           echo "bool_bool_2 == 'true': ${{ github.event.inputs.bool_bool_2 == 'true' }}"
           echo "bool_bool_3 == 'true': ${{ github.event.inputs.bool_bool_3 == 'true' }}"
           echo "bool_bool_4 == 'true': ${{ github.event.inputs.bool_bool_4 == 'true' }}"
-          echo "bool_str_1 == 'true': ${{ github.event.inputs.bool_str_1 == 'true' }}"
+          echo "bool_str_1 == 'true': ${{ github.event.inputs.bool_str_1 == 'true' }}" # true (string equivalence)
           echo "bool_str_2 == 'true': ${{ github.event.inputs.bool_str_2 == 'true' }}"
-          echo "bool_str_3 == 'true': ${{ github.event.inputs.bool_str_3 == 'true' }}"
+          echo "bool_str_3 == 'true': ${{ github.event.inputs.bool_str_3 == 'true' }}" # true (string equivalence)
           echo "bool_str_4 == 'true': ${{ github.event.inputs.bool_str_4 == 'true' }}"
 
           echo "Output comparison with boolean false:"
-          echo "bool_bool_1 == false: ${{ github.event.inputs.bool_bool_1 == false }}"
-          echo "bool_bool_2 == false: ${{ github.event.inputs.bool_bool_2 == false }}"
-          echo "bool_bool_3 == false: ${{ github.event.inputs.bool_bool_3 == false }}"
-          echo "bool_bool_4 == false: ${{ github.event.inputs.bool_bool_4 == false }}"
-          echo "bool_str_1 == false: ${{ github.event.inputs.bool_str_1 == false }}"
-          echo "bool_str_2 == false: ${{ github.event.inputs.bool_str_2 == false }}"
-          echo "bool_str_3 == false: ${{ github.event.inputs.bool_str_3 == false }}"
-          echo "bool_str_4 == false: ${{ github.event.inputs.bool_str_4 == false }}"
+          echo "bool_bool_1 == false: ${{ github.event.inputs.bool_bool_1 == false }}" # false ('true' converts to NaN)
+          echo "bool_bool_2 == false: ${{ github.event.inputs.bool_bool_2 == false }}" # false
+          echo "bool_bool_3 == false: ${{ github.event.inputs.bool_bool_3 == false }}" # false
+          echo "bool_bool_4 == false: ${{ github.event.inputs.bool_bool_4 == false }}" # false
+          echo "bool_str_1 == false: ${{ github.event.inputs.bool_str_1 == false }}" # false
+          echo "bool_str_2 == false: ${{ github.event.inputs.bool_str_2 == false }}" # true ('' and false both convert to 0)
+          echo "bool_str_3 == false: ${{ github.event.inputs.bool_str_3 == false }}" # false
+          echo "bool_str_4 == false: ${{ github.event.inputs.bool_str_4 == false }}" # false
 
           echo "Output comparison with string 'false':"
-          echo "bool_bool_1 == 'false': ${{ github.event.inputs.bool_bool_1 == 'false' }}"
-          echo "bool_bool_2 == 'false': ${{ github.event.inputs.bool_bool_2 == 'false' }}"
-          echo "bool_bool_3 == 'false': ${{ github.event.inputs.bool_bool_3 == 'false' }}"
-          echo "bool_bool_4 == 'false': ${{ github.event.inputs.bool_bool_4 == 'false' }}"
-          echo "bool_str_1 == 'false': ${{ github.event.inputs.bool_str_1 == 'false' }}"
-          echo "bool_str_2 == 'false': ${{ github.event.inputs.bool_str_2 == 'false' }}"
-          echo "bool_str_3 == 'false': ${{ github.event.inputs.bool_str_3 == 'false' }}"
-          echo "bool_str_4 == 'false': ${{ github.event.inputs.bool_str_4 == 'false' }}"
+          echo "bool_bool_1 == 'false': ${{ github.event.inputs.bool_bool_1 == 'false' }}" # false
+          echo "bool_bool_2 == 'false': ${{ github.event.inputs.bool_bool_2 == 'false' }}" # true (string equivalence)
+          echo "bool_bool_3 == 'false': ${{ github.event.inputs.bool_bool_3 == 'false' }}" # true (string equivalence)
+          echo "bool_bool_4 == 'false': ${{ github.event.inputs.bool_bool_4 == 'false' }}" # true (string equivalence)
+          echo "bool_str_1 == 'false': ${{ github.event.inputs.bool_str_1 == 'false' }}" # false
+          echo "bool_str_2 == 'false': ${{ github.event.inputs.bool_str_2 == 'false' }}" # false
+          echo "bool_str_3 == 'false': ${{ github.event.inputs.bool_str_3 == 'false' }}" # false
+          echo "bool_str_4 == 'false': ${{ github.event.inputs.bool_str_4 == 'false' }}" # true (string equivalence)
 
           echo "Output comparison with null:"
           echo "bool_bool_1 == null: ${{ github.event.inputs.bool_bool_1 == null }}"
@@ -183,7 +192,7 @@ jobs:
           echo "bool_bool_3 == null: ${{ github.event.inputs.bool_bool_3 == null }}"
           echo "bool_bool_4 == null: ${{ github.event.inputs.bool_bool_4 == null }}"
           echo "bool_str_1 == null: ${{ github.event.inputs.bool_str_1 == null }}"
-          echo "bool_str_2 == null: ${{ github.event.inputs.bool_str_2 == null }}"
+          echo "bool_str_2 == null: ${{ github.event.inputs.bool_str_2 == null }}" # only true value ('' and null both convert to 0)
           echo "bool_str_3 == null: ${{ github.event.inputs.bool_str_3 == null }}"
           echo "bool_str_4 == null: ${{ github.event.inputs.bool_str_4 == null }}"
 
@@ -193,6 +202,6 @@ jobs:
           echo "bool_bool_3 == '': ${{ github.event.inputs.bool_bool_3 == '' }}"
           echo "bool_bool_4 == '': ${{ github.event.inputs.bool_bool_4 == '' }}"
           echo "bool_str_1 == '': ${{ github.event.inputs.bool_str_1 == '' }}"
-          echo "bool_str_2 == '': ${{ github.event.inputs.bool_str_2 == '' }}"
+          echo "bool_str_2 == '': ${{ github.event.inputs.bool_str_2 == '' }}" # only true value (string equality)
           echo "bool_str_3 == '': ${{ github.event.inputs.bool_str_3 == '' }}"
           echo "bool_str_4 == '': ${{ github.event.inputs.bool_str_4 == '' }}"
