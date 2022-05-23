@@ -3,7 +3,7 @@ on:
     inputs:
       check-manual:
         type: boolean
-        default: 'false'
+        default: false
       check-manual-string:
         type: string
         default: 'false'
