@@ -3,10 +3,20 @@ on:
     inputs:
       check-manual:
         type: boolean
+
+        # The online parser will complain "type is set to boolean ,
+        # but default is of type string", but it will in fact work
+        # just fine when run.  There is, of course, no reason not to
+        # just use "false" (unquoted), without the expression
+        # template.
         default: ${{ false }}
+
       check-manual-string:
         type: string
         default: 'false'
+      string-using-format-function:
+        type: string
+        default: ${{ format('The event is {1}!', github.event_name) }}
 
 name: called-workflow
 
@@ -28,3 +38,4 @@ jobs:
           echo "Is check-manual-string equal to 'true'?: ${{ inputs.check-manual-string == 'true' }}"
           echo Is check-manual-string equal to false?: ${{ inputs.check-manual-string == false }}
           echo "Is check-manual-string equal to 'false'?: ${{ inputs.check-manual-string == 'false' }}"
+          echo "string-using-format-function = ${{ inputs.string-using-format-function }}"
