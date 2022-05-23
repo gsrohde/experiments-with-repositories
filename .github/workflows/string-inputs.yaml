@@ -21,7 +21,7 @@ on:
       bool_str_5:
         description: 'Boolean of type string (default: expression template containing ''true'')'
         type: string
-        default: ${{ true }}
+        default: ${{ 'true' }}
       bool_str_6:
         description: 'Boolean of type string (default: expression template containing ''false'')'
         type: string
