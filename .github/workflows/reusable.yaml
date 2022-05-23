@@ -17,6 +17,7 @@ on:
       string-using-format-function:
         type: string
         default: ${{ format('The event is {1}!', github.event_name) }}
+        required: false
 
 name: called-workflow
 
