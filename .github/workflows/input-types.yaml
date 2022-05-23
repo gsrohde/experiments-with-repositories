@@ -8,7 +8,7 @@ on:
         default: 'false' # unlike with workflow_call, the online parser doesn't complain about using a string here
       string-using-format-function:
         type: string
-        default: ${{ format('The event is {0}!', github.event_name) }}
+        default: ${{ format('The event is {0}!', 'github.event_name') }}
 
 jobs:
   call-reusable-workflow-boolean:
