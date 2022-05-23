@@ -5,7 +5,7 @@ on:
       check-manual:
         description: 'Check the manual'
         type: boolean
-        default: true
+        default: 'true' # unlike with workflow_call, the online parse doesn't complain about using a string here
 
 jobs:
   call-reusable-workflow-boolean:
