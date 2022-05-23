@@ -22,6 +22,7 @@ jobs:
       check-manual-string: ${{ github.event.inputs.check-manual }}
 
   print-string:
+    runs-on: ubuntu-latest
     steps:
-      run: |
-        echo "string-using-format-function = ${{ github.event.inputs.string-using-format-function }}"
+      - run: |
+          echo "string-using-format-function = ${{ github.event.inputs.string-using-format-function }}"
