@@ -6,9 +6,6 @@ on:
         description: 'Check the manual'
         type: boolean
         default: 'false' # unlike with workflow_call, the online parser doesn't complain about using a string here
-      string-using-format-function:
-        type: string
-        default: ${{ format('The event is {0}!', 'github.event_name') }}
 
 jobs:
   call-reusable-workflow-boolean:
@@ -20,9 +17,3 @@ jobs:
     uses: ./.github/workflows/reusable.yaml
     with:
       check-manual-string: ${{ github.event.inputs.check-manual }}
-
-  print-string:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo "string-using-format-function = ${{ github.event.inputs.string-using-format-function }}"
