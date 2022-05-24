@@ -43,5 +43,5 @@ jobs:
        # Compare inputs
       - name: Compare event inputs with workflow_call inputs
         run: |
-          echo "inputs: ${{ fromJSON(github.event.inputs) }}"
+          #echo "inputs: ${{ fromJSON(github.event.inputs) }}"
           echo "inputs: ${{ fromJSON(inputs) }}"
