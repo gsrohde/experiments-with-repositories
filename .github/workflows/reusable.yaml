@@ -41,7 +41,7 @@ jobs:
           echo "string-using-format-function = ${{ inputs.string-using-format-function }}"
 
       # Compare inputs
-      - name: 'Compare event inputs with workflow_call inputs'
-        run: |
+      #- name: 'Compare event inputs with workflow_call inputs'
+      #  run: |
           echo "inputs:"# ${{ fromJSON(github.event.inputs) }}"
           echo "inputs:"# ${{ fromJSON(inputs) }}"
