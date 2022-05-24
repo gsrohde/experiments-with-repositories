@@ -40,7 +40,7 @@ jobs:
           echo "Is check-manual-string equal to 'false'?: ${{ inputs.check-manual-string == 'false' }}"
           echo "string-using-format-function = ${{ inputs.string-using-format-function }}"
 
-       # Compare inputs
+      # Compare inputs
       - name: 'Compare event inputs with workflow_call inputs'
         run: |
           #echo "inputs: ${{ fromJSON(github.event.inputs) }}"
