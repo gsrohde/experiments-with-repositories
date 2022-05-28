@@ -4,6 +4,8 @@ on:
   push:
     tags:
       - '*'
+    branches:
+      - ./docs
 
 jobs:
   test_bash_echo:
