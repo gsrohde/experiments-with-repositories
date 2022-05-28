@@ -4,7 +4,8 @@ on:
   push:
     tags:
       - '*'
-
+    branches:
+      - main
 jobs:
   test_bash_echo:
     runs-on: ubuntu-latest
