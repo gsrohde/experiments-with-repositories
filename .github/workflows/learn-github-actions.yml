@@ -2,16 +2,13 @@ name: learn-github-actions
 on:
   push:
     tags:
-      - v*
+      - refs/tags/v*
 jobs:
   test-out-stuff:
     runs-on: ubuntu-latest
     steps:
       - name: Echo
         run: |
-          echo '${{ toJSON(github.event) }}'
-          echo '${{ github.event_name }}'
-          echo '${{ github.event.ref }}'
-          echo '${{ github.event.ref_type }}'
-          echo "DONE"
+          echo "GITHUB_REF = $GITHUB_REF"
+          echo "GITHUB_REF_NAME = $GITHUB_REF_NAME"
 
