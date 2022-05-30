@@ -9,7 +9,7 @@ on:
         # just fine when run.  There is, of course, no reason not to
         # just use "false" (unquoted), without the expression
         # template.
-        default: ${{ true }}
+        default: 'true'
 
       check-manual-string:
         type: string
