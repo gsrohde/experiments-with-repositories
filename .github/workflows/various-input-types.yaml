@@ -43,14 +43,14 @@ env:
   true-string-5: ${{ true }}
   true-string-6: ${{ fromJSON(true) }}
 
-  myNull: ${{ null }}
-  myBoolean: ${{ false }}
-  myIntegerNumber: ${{ 711 }}
-  myFloatNumber: ${{ -9.2 }}
-  myHexNumber: ${{ 0xff }}
-  myExponentialNumber: ${{ -2.99e-2 }}
+  myNull: null
+  myBoolean: false
+  myIntegerNumber: 711
+  myFloatNumber: -9.2
+  myHexNumber: 0xff
+  myExponentialNumber: -2.99e-2
   myString: Mona the Octocat
-  myStringInBraces: ${{ 'It''s open source!' }}
+  myStringInBraces: 'It''s open source!'
 
 jobs:
   print_info:
