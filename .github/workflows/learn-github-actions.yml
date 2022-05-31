@@ -3,12 +3,14 @@ on:
   push:
     tags:
       - refs/tags/v*
+  pull_request:
 jobs:
   test-out-stuff:
     runs-on: ubuntu-latest
     steps:
       - name: Echo
         run: |
+          echo "GITHUB_SHA = $GITHUB_SHA"
           echo "GITHUB_REF = $GITHUB_REF"
           echo "GITHUB_REF_NAME = $GITHUB_REF_NAME"
 
