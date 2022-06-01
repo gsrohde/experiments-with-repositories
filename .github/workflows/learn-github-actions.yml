@@ -4,8 +4,7 @@ on:
     tags:
       - refs/tags/v*
   pull_request:
-    branches:
-      - main
+
 jobs:
   test-out-stuff:
     runs-on: ubuntu-latest
