@@ -1,7 +1,6 @@
 name: Test Casts
 on:
   workflow_dispatch:
-  push:
 
 jobs:
   test_bash_echo:
