@@ -2,10 +2,6 @@ name: Test Casts
 on:
   workflow_dispatch:
   push:
-    tags:
-      - '*'
-    branches:
-      - ./docs
 
 jobs:
   test_bash_echo:
