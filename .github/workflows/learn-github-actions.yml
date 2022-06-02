@@ -4,6 +4,8 @@ on:
     tags:
       - refs/tags/v*
   pull_request:
+    branches:
+      - main
 
 jobs:
   test-out-stuff:
@@ -11,8 +13,10 @@ jobs:
     steps:
       - name: Echo
         run: |
+          echo "github.event.pull_request.head.sha = ${{ github.event.pull_request.head.sha }}"
           echo "GITHUB_SHA = $GITHUB_SHA"
           echo "GITHUB_REF = $GITHUB_REF"
           echo "GITHUB_REF_NAME = $GITHUB_REF_NAME"
           echo "GITHUB_BASE_REF = $GITHUB_BASE_REF"
           echo "GITHUB_HEAD_REF = $GITHUB_HEAD_REF"
+          echo "This branch is my_branch_copy2."
