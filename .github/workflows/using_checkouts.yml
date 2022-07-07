@@ -1,4 +1,4 @@
-on: push
+on: workflow_dispatch
 
 jobs:
   check_out_and_use:
