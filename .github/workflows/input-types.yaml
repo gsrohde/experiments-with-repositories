@@ -18,6 +18,16 @@ jobs:
     with:
       check-manual-string: ${{ github.event.inputs.check-manual }}
 
+  call-reusable-workflow-inputs-context:
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      check-manual: ${{ inputs.check-manual }}
+
+  call-reusable-workflow-erroneous:
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      check-manual: ${{ github.event.inputs.check-manual }}
+
   print-inputs:
     runs-on: ubuntu-latest
     steps:
