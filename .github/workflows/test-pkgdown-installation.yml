@@ -20,4 +20,5 @@ jobs:
       run: |
         install.packages(c("remotes"))
         remotes::install_cran("pkgdown")
+        help('pkgdown')
       shell: Rscript {0}
