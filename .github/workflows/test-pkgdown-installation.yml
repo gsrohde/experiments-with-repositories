@@ -1,7 +1,7 @@
 name: Install pkgdown
 
 on:
-  push:
+  #push:
 
   workflow_dispatch:
 
