@@ -29,7 +29,7 @@ jobs:
         run: |
               echo "******** Job Logs from ********"
               echo ${{ steps.allJobs.outputs.exit_code }}
-        if: always() && (steps.seedBuild.outcome == 'failure' || steps.allJobs.outcome == 'failure')
+        if: (steps.seedBuild.outcome == 'failure' || steps.allJobs.outcome == 'failure')
 
       - name: Will this run
         run: |
