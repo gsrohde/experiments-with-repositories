@@ -20,16 +20,10 @@ jobs:
               exit 1
         continue-on-error: true
 
-      - name: JobB
-        id: allJobs
-        run: |
-              echo "::set-output name=exit_code::$(echo -n "$?")"
-
       - name: Debug Job Failure
         run: |
               echo "******** Job Logs from ********"
-              echo ${{ steps.allJobs.outputs.exit_code }}
-        if: (steps.seedBuild.outcome == 'failure' || steps.allJobs.outcome == 'failure')
+        if: steps.seedBuild.outcome == 'failure'
 
       - name: Will this run
         run: |
