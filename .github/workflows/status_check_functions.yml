@@ -16,8 +16,8 @@ jobs:
       - name: JobA
         id: seedBuild
         run: |
-              echo "not failing on purpose"
-              exit 0
+              echo "failing on purpose"
+              exit 1
         continue-on-error: true
 
       - name: JobB
