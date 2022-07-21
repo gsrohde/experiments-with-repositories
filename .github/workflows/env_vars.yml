@@ -19,7 +19,7 @@ jobs:
         id: step_one
         run: |
           echo "action_state=yellow" >> $GITHUB_ENV
-          echo "VERSION=${GITHUB_REF##*/} >> $GITHUB_ENV
+          echo "VERSION=${GITHUB_REF##*/}" >> $GITHUB_ENV
       - name: Use the value 2
         id: step_two
         run: |
