@@ -1,7 +1,7 @@
 name: Test status check functions
 
 on:
-  push:
+  #push:
 
   workflow_dispatch:
 
