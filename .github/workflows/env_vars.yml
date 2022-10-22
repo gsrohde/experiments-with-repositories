@@ -33,4 +33,7 @@ jobs:
       - name: Use the GITHUB_ACTIONS variable
         id: step_four
         run: |
-          Rscript ./script/print_env_var.R
+          dir()
+          print_env_var.R
+        working-directory: ./script
+        shell: Rscript {0}
