@@ -25,3 +25,8 @@ jobs:
         run: |
           echo "${{ env.action_state }}" # This will output 'yellow'
           echo $VERSION
+
+      - name: Use the GITHUB_ACTIONS variable
+        id: step_three
+        run: |
+          Rscript ./script/print_env_var.R
