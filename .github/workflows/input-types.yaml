@@ -23,10 +23,10 @@ jobs:
     with:
       check-manual: ${{ inputs.check-manual }}
 
-  # call-reusable-workflow-erroneous:
-  #   uses: ./.github/workflows/reusable.yaml
-  #   with:
-  #     check-manual: ${{ github.event.inputs.check-manual }} # Won't work: github.event.inputs.check-manual, unlike inputs.check-manual, is a string; a boolean is required.
+  call-reusable-workflow-erroneous:
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      check-manual: ${{ github.event.inputs.check-manual }} # Won't work: github.event.inputs.check-manual, unlike inputs.check-manual, is a string; a boolean is required.
 
   print-inputs:
     runs-on: ubuntu-latest
