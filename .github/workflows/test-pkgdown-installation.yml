@@ -1,0 +1,24 @@
+name: Install pkgdown
+
+on:
+  #push:
+
+  workflow_dispatch:
+
+jobs:
+  install:
+    name: Install pkgdown
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: 2. Set up R
+      uses: r-lib/actions/setup-r@v2
+
+    - name: Install pkgdown
+      run: |
+        install.packages(c("remotes"))
+        remotes::install_cran("pkgdown")
+        help('pkgdown')
+      shell: Rscript {0}

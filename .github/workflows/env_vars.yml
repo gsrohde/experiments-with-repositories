@@ -1,0 +1,38 @@
+name: Work with env vars
+on:
+  #push:
+  #pull_request:
+  workflow_dispatch:
+
+env:
+  action_state: green
+
+jobs:
+  test-out-stuff:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use the value 1
+        id: step_zero
+        run: |
+          echo "${{ env.action_state }}" # This will output 'green'
+      - name: Set the value
+        id: step_one
+        run: |
+          echo "action_state=yellow" >> $GITHUB_ENV
+          echo "VERSION=${GITHUB_REF_NAME////-}" >> $GITHUB_ENV
+      - name: Use the value 2
+        id: step_two
+        run: |
+          echo "${{ env.action_state }}" # This will output 'yellow'
+          echo $VERSION
+
+      - name: Check out repository
+        id: step_three
+        uses: actions/checkout@v2
+
+      - name: Use the GITHUB_ACTIONS variable
+        id: step_four
+        run: |
+          print_env_var.R
+        working-directory: ./script
+        shell: Rscript

@@ -9,17 +9,33 @@ on:
 
 jobs:
   call-reusable-workflow-boolean:
+    name: call-reusable-workflow-boolean
     uses: ./.github/workflows/reusable.yaml
     with:
       check-manual: ${{ github.event.inputs.check-manual == 'true' }}
 
   call-reusable-workflow-string:
+    name: call-reusable-workflow-string
     uses: ./.github/workflows/reusable.yaml
     with:
       check-manual-string: ${{ github.event.inputs.check-manual }}
 
+  call-reusable-workflow-inputs-context:
+    name: call-reusable-workflow-inputs-context
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      check-manual: ${{ inputs.check-manual }}
+
+  call-reusable-workflow-erroneous:
+    name: call-reusable-workflow-erroneous
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      check-manual: ${{ github.event.inputs.check-manual }} # Won't work: github.event.inputs.check-manual, unlike inputs.check-manual, is a string; a boolean is required.
+
   print-inputs:
+    name: print-inputs
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "inputs: ${{ toJSON(github.event.inputs) }}"
+          echo 'github.event.inputs: ${{ toJSON(github.event.inputs) }}'
+          echo 'inputs: ${{ toJSON(inputs) }}'

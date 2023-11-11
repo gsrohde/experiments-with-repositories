@@ -1,0 +1,15 @@
+on: workflow_dispatch
+
+jobs:
+  check_out_and_use:
+    runs-on: ubuntu-latest
+    name: A job to check out a repository and have an action use it
+    steps:
+      - uses: actions/checkout@v3
+      - id: foo
+        uses: ./.github/actions/composite-action
+        with:
+          what-to-write: 'Kilroy was here'
+      - run: cat ./docs/placeholder
+        shell: bash
+
